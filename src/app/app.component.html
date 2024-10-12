@@ -7,6 +7,23 @@
 <!-- * * * * * * * to get started with your project! * * * * * * * -->
 <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
 
+
+
+<div *ngIf="companies && companies.length > 0">
+  <h2>Listado de Compañías</h2>
+  <ul>
+    <li *ngFor="let company of companies">
+      {{ company.name }} <!-- Reemplaza 'name' con la propiedad correcta del objeto compañía -->
+    </li>
+  </ul>
+</div>
+<div *ngIf="companies && companies.length === 0">
+  <p>No hay compañías disponibles.</p>
+</div>
+<div *ngIf="!companies">
+  <p>Cargando...</p>
+</div>
+
 <style>
   :host {
     --bright-blue: oklch(51.01% 0.274 263.83);
