@@ -1,0 +1,66 @@
+/* Contenedor principal para centrar la tabla */
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-color: #f5f5f5;
+  padding: 10px;
+}
+
+/* Tabla compacta */
+.custom-table {
+  width: auto; /* Ajusta la tabla al contenido */
+  max-width: 300px; /* Ancho máximo más reducido */
+  border-radius: 12px;
+  background-color: #ffffff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  table-layout: fixed; /* Control estricto del ancho de columnas */
+  border-collapse: collapse; /* Elimina espacios entre celdas */
+  overflow: hidden;
+  margin: 0; /* Elimina márgenes */
+  padding: 0; /* Elimina relleno */
+}
+
+/* Encabezado de la tabla */
+.custom-header-row {
+  background-color: #ffeef0;
+  color: #d32f2f;
+  font-weight: bold;
+  text-align: center;
+  height: 35px; /* Altura reducida */
+}
+
+/* Celdas del encabezado */
+th.mat-header-cell {
+  padding: 4px 6px; /* Espacio compacto */
+  font-size: 12px; /* Tamaño de texto reducido */
+  border: none;
+  text-align: center;
+  white-space: nowrap;
+}
+
+/* Celdas de datos */
+td.mat-cell {
+  padding: 4px 6px; /* Espacio compacto */
+  text-align: center;
+  border-bottom: 1px solid #e0e0e0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis; /* Trunca texto largo */
+}
+
+/* Filas alternadas */
+.custom-row:nth-child(odd) {
+  background-color: #f9f9f9;
+}
+
+.custom-row:nth-child(even) {
+  background-color: #ffffff;
+}
+
+/* Efecto hover */
+.custom-row:hover {
+  background-color: #e0f7fa;
+  transition: background-color 0.3s ease;
+}

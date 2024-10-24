@@ -9,20 +9,6 @@
 
 
 
-<div *ngIf="companies && companies.length > 0">
-  <h2>Listado de Compañías</h2>
-  <ul>
-    <li *ngFor="let company of companies">
-      {{ company.name }} <!-- Reemplaza 'name' con la propiedad correcta del objeto compañía -->
-    </li>
-  </ul>
-</div>
-<div *ngIf="companies && companies.length === 0">
-  <p>No hay compañías disponibles.</p>
-</div>
-<div *ngIf="!companies">
-  <p>Cargando...</p>
-</div>
 
 <style>
   :host {
@@ -275,6 +261,50 @@
             </svg>
           </a>
         }
+        <nav>
+        <a class="pill" [routerLink]="['/company']">
+          <span>Compañias</span>  
+          <svg xmlns="http://www.w3.org/2000/svg" height="20" viewBox="0 -960 960 960" width="29" fill="currentColor">
+            <path d="M480-40q-85 0-160.5-32.5T188-157q-57-57-89.5-132.5T66-450q0-85 32.5-160.5T188-743q57-57 132.5-89.5T480-865q85 0 160.5 32.5T772-743q57 57 89.5 132.5T894-450q0 85-32.5 160.5T772-157q-57 57-132.5 89.5T480-40Zm0-400Zm0 370q66 0 125-25t102-68q57-57 88-132.5T894-450q0-85-31-160.5T775-743q-57-57-132-89T480-865q-85 0-160 32T188-743q-57 57-89.5 132.5T66-450q0 85 32.5 160.5T188-157q57 57 132.5 88.5T480-70Zm-40-190V180h-80v-60h280v60h-80v160H440Z"/>
+          </svg>
+        </a>
+      </nav>
+
+      <nav>
+        <a class="pill" [routerLink]="['/sucursal']">
+          <span>Sucursales</span>  
+          <svg xmlns="http://www.w3.org/2000/svg" height="20" viewBox="0 -960 960 960" width="29" fill="currentColor">
+            <path d="M480-40q-85 0-160.5-32.5T188-157q-57-57-89.5-132.5T66-450q0-85 32.5-160.5T188-743q57-57 132.5-89.5T480-865q85 0 160.5 32.5T772-743q57 57 89.5 132.5T894-450q0 85-32.5 160.5T772-157q-57 57-132.5 89.5T480-40Zm0-400Zm0 370q66 0 125-25t102-68q57-57 88-132.5T894-450q0-85-31-160.5T775-743q-57-57-132-89T480-865q-85 0-160 32T188-743q-57 57-89.5 132.5T66-450q0 85 32.5 160.5T188-157q57 57 132.5 88.5T480-70Zm-40-190V180h-80v-60h280v60h-80v160H440Z"/>
+          </svg>
+        </a>
+      </nav>
+      <nav>
+        <a class="pill" [routerLink]="['/product']">
+          <span>Productos</span>  
+          <svg xmlns="http://www.w3.org/2000/svg" height="20" viewBox="0 -960 960 960" width="29" fill="currentColor">
+            <path d="M480-40q-85 0-160.5-32.5T188-157q-57-57-89.5-132.5T66-450q0-85 32.5-160.5T188-743q57-57 132.5-89.5T480-865q85 0 160.5 32.5T772-743q57 57 89.5 132.5T894-450q0 85-32.5 160.5T772-157q-57 57-132.5 89.5T480-40Zm0-400Zm0 370q66 0 125-25t102-68q57-57 88-132.5T894-450q0-85-31-160.5T775-743q-57-57-132-89T480-865q-85 0-160 32T188-743q-57 57-89.5 132.5T66-450q0 85 32.5 160.5T188-157q57 57 132.5 88.5T480-70Zm-40-190V180h-80v-60h280v60h-80v160H440Z"/>
+          </svg>
+        </a>
+      </nav>
+      
+      <nav>
+        <a class="pill" [routerLink]="['/motivoMovimiento']">
+          <span>Motivos Movimientos</span>  
+          <svg xmlns="http://www.w3.org/2000/svg" height="20" viewBox="0 -960 960 960" width="29" fill="currentColor">
+            <path d="M480-40q-85 0-160.5-32.5T188-157q-57-57-89.5-132.5T66-450q0-85 32.5-160.5T188-743q57-57 132.5-89.5T480-865q85 0 160.5 32.5T772-743q57 57 89.5 132.5T894-450q0 85-32.5 160.5T772-157q-57 57-132.5 89.5T480-40Zm0-400Zm0 370q66 0 125-25t102-68q57-57 88-132.5T894-450q0-85-31-160.5T775-743q-57-57-132-89T480-865q-85 0-160 32T188-743q-57 57-89.5 132.5T66-450q0 85 32.5 160.5T188-157q57 57 132.5 88.5T480-70Zm-40-190V180h-80v-60h280v60h-80v160H440Z"/>
+          </svg>
+        </a>
+      </nav>
+
+      <nav>
+        <a class="pill" [routerLink]="['/inventario']">
+          <span>Lista de Stock</span>  
+          <svg xmlns="http://www.w3.org/2000/svg" height="20" viewBox="0 -960 960 960" width="29" fill="currentColor">
+            <path d="M480-40q-85 0-160.5-32.5T188-157q-57-57-89.5-132.5T66-450q0-85 32.5-160.5T188-743q57-57 132.5-89.5T480-865q85 0 160.5 32.5T772-743q57 57 89.5 132.5T894-450q0 85-32.5 160.5T772-157q-57 57-132.5 89.5T480-40Zm0-400Zm0 370q66 0 125-25t102-68q57-57 88-132.5T894-450q0-85-31-160.5T775-743q-57-57-132-89T480-865q-85 0-160 32T188-743q-57 57-89.5 132.5T66-450q0 85 32.5 160.5T188-157q57 57 132.5 88.5T480-70Zm-40-190V180h-80v-60h280v60h-80v160H440Z"/>
+          </svg>
+        </a>
+      </nav>
+
       </div>
       <div class="social-links">
         <a
@@ -340,7 +370,7 @@
     </div>
   </div>
 </main>
-
+<router-outlet></router-outlet>
 <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
 <!-- * * * * * * * * * * * The content above * * * * * * * * * * * * -->
 <!-- * * * * * * * * * * is only a placeholder * * * * * * * * * * * -->
@@ -350,4 +380,4 @@
 <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
 
 
-<router-outlet />
+

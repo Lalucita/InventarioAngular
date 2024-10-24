@@ -1,0 +1,49 @@
+/* General styles for the table */
+table {
+    width: 100%;
+    border-collapse: collapse;  /* Para eliminar los espacios entre celdas */
+  }
+  
+  /* Estilo para las celdas del encabezado */
+  th.mat-header-cell {
+    padding: 12px;
+    text-align: left;
+    background-color: #e0f7fa;  /* Color verde menta suave */
+    border-bottom: 2px solid #00796b;  /* Borde inferior más oscuro */
+    font-size: 16px;
+    font-weight: bold;
+    color: #004d40;  /* Color del texto más oscuro para contraste */
+  }
+  
+  /* Estilo para las celdas de los datos */
+  td.mat-cell {
+    padding: 10px;
+    text-align: left;
+    border-bottom: 1px solid #ccc;
+    font-size: 14px;
+  }
+  
+  /* Hover effect for rows */
+  tr.mat-row:hover {
+    background-color: #f1f8e9;  /* Color claro para el hover */
+    transition: background-color 0.3s ease;
+  }
+  
+  /* Estilo para la sombra de la tabla */
+  .mat-elevation-z8 {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;  /* Esquinas redondeadas */
+  }
+  
+  /* Border around the entire header row */
+  tr.mat-header-row {
+    border-radius: 8px 8px 0 0;  /* Redondeo solo en las esquinas superiores */
+  }
+  
+  /* Opcional: espacio en blanco alrededor de la tabla */
+  .container {
+    padding: 20px;
+    background-color: #f9f9f9;  /* Fondo suave para la tabla */
+    border-radius: 10px;
+  }
+  
