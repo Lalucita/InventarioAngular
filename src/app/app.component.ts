@@ -1,5 +1,5 @@
+import { SidebarComponent } from './sidebar/sidebar.component';
 import { Component ,OnInit} from '@angular/core';
-import { RouterOutlet } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { CompanyService } from './services/company.service';
 import { RouterModule } from '@angular/router';
@@ -8,12 +8,17 @@ import { TableComponent } from "./modules/table/components/table/table.component
 import { SucursalComponent } from './sucursal/sucursal.component';
 
 
-
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterModule, CommonModule, CompanyComponent, TableComponent,SucursalComponent],
-  templateUrl: './app.component.html',
+  imports: [RouterModule
+            , CommonModule
+            , SidebarComponent
+            , CompanyComponent
+            , TableComponent
+            ,SucursalComponent],
+  templateUrl: 
+    './app.component.html',
   styleUrl: './app.component.scss'
 })
 export class AppComponent implements OnInit{
