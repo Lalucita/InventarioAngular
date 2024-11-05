@@ -1,5 +1,5 @@
-.sidenav-container {
-  height: 100vh;
+:host *{
+  transition: all 500ms ease-in-out;
 }
 
 .sidenav {
@@ -35,3 +35,24 @@
 .main-content {
   padding: 1rem;
 }
+
+
+mat-toolbar{
+  position: relative;
+  z-index: 5;
+}
+
+.content{
+  padding: 24px ;
+}
+
+mat-sidenav-container{
+  height: calc(100vh);
+}
+
+mat-sidenav, mat-sidenav-content{
+  transition:all 500ms ease-in-out;
+}
+
+
+

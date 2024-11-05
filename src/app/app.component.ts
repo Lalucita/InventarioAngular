@@ -4,8 +4,10 @@ import { CommonModule } from '@angular/common';
 import { CompanyService } from './services/company.service';
 import { RouterModule } from '@angular/router';
 import { CompanyComponent } from './company/company.component';
-import { TableComponent } from "./modules/table/components/table/table.component";
 import { SucursalComponent } from './sucursal/sucursal.component';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatIconModule } from '@angular/material/icon';
+import { MatButtonModule } from '@angular/material/button';
 
 
 @Component({
@@ -15,8 +17,10 @@ import { SucursalComponent } from './sucursal/sucursal.component';
             , CommonModule
             , SidebarComponent
             , CompanyComponent
-            , TableComponent
-            ,SucursalComponent],
+            ,SucursalComponent
+            , MatToolbarModule
+            ,MatIconModule
+            ,MatButtonModule],
   templateUrl: 
     './app.component.html',
   styleUrl: './app.component.scss'

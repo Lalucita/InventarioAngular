@@ -11,8 +11,14 @@ export class InventarioService {
     constructor(private http: HttpClient){
     
     }
-    getStockList():Observable<any>{
-        return this.http.get(`${this.apiUrl}/Inventario`);
+
+
+    getStockList(): Observable<any> {
+        return this.http.get(`${this.apiUrl}/Inventario/GetAll`);
+    }
+    
+    getInventarioProductoList(): Observable<any> {
+        return this.http.get(`${this.apiUrl}/Inventario/GetInventarioProducto`);
     }
     
 }
