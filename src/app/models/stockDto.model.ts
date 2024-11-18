@@ -5,6 +5,7 @@ export class StockDto {
     sucursalName: string;
     companyName: string;
     productName: string;
+    productId:string;
     cantidad:number;
     status:number;
     estadoLoteNombre: string;
@@ -15,6 +16,7 @@ export class StockDto {
       this.sucursalName = data.sucursalName || '';
       this.companyName = data.companyName || '';
       this.productName = data.productName || '';
+      this.productId=data.productId|| '';
       this.cantidad=data.cantidad||0;
       this.status=data.status||0;
       this.estadoLoteNombre = data.estadoLoteNombre || '';

@@ -20,6 +20,21 @@ export class InventarioService {
     getInventarioProductoList(): Observable<any> {
         return this.http.get(`${this.apiUrl}/Inventario/GetInventarioProducto`);
     }
+
+    
+    getInventarioStockProducto(companyID: string, sucursalID:string , currentPage:number, pageSize:number):Observable<any>{
+        const datos={
+                companyId: companyID,
+                sucursalId: sucursalID,
+                SortDir:"asc",
+                SortProperty:"ProductName",
+                CurrentPage:currentPage,
+                PageSize:pageSize
+        };
+        console.log(datos)
+        return this.http.post(`${this.apiUrl}/Inventario/GetInventarioByCAndS`, datos)
+        
+    }
     
 }
 

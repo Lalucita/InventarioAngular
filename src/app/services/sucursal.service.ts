@@ -11,8 +11,13 @@ export class SucursalService {
     constructor(private http: HttpClient){
     
     }
+
     getSucursales():Observable<any>{
         return this.http.get(`${this.apiUrl}/Sucursal`);
+    }
+
+    getSucursalesByCompanyID(companyID: string): Observable<any>{
+        return this.http.get(`${this.apiUrl}/Sucursal/by-company/${companyID}`);
     }
     
 }

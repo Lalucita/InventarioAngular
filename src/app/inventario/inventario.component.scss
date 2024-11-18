@@ -1,0 +1,19 @@
+:host {
+    display: flex;
+    gap: 32px;
+  
+    mat-form-field {
+      flex: 1;
+      border-radius: 8px; // Bordes redondeados
+      --mat-form-field-outline-width: 0; // Quitar línea inferior azul
+  
+      .mat-form-field-flex {
+        border-radius: 8px; // Asegurar que el contenido interno también sea redondeado
+      }
+  
+      .mat-form-field-appearance-outline .mat-form-field-outline {
+        display: none; // Remueve completamente la línea de borde inferior
+      }
+    }
+  }
+  

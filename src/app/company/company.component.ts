@@ -23,6 +23,7 @@ export class CompanyComponent implements OnInit{
   constructor(private companyService :CompanyService ){}
 
   ngOnInit(): void {
+    
     this.companyService .getCompanies().subscribe({
       next:(data: Company[])=>{
         this.dataSource.data=data.map(item=>new Company(item));

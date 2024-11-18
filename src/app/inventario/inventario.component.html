@@ -1,6 +1,38 @@
 
 <p>Stock List</p>
+<br>
 <div class="container">
+
+    <div style="display: flex; gap: 32px;">
+      <mat-form-field appearance="outline">
+        <mat-label>Seleccionar Compañia</mat-label>
+        <mat-select [(value)]="selectedCompany" (selectionChange)="onCompanyChange($event)">
+          <mat-option *ngFor="let company of companies" [value]="company.companyId">{{company.companyName}}</mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline" *ngIf="sucursales.length>0" style="flex:1;" >
+        <mat-label>Seleccionar Sucursal</mat-label>
+        <mat-select [(value)]="selectedSucursal" (selectionChange)="onSucursalChange($event)">
+          <mat-option [value]="null" disabled>Seleccione una sucursal</mat-option>
+          <mat-option *ngFor="let sucursal of sucursales" [value]="sucursal.sucursalId">{{sucursal.sucursalName}}</mat-option>
+        </mat-select>
+      </mat-form-field>
+ 
+        <mat-form-field appearance="outline">
+          
+          <mat-select>
+            <mat-option value="red">Red</mat-option>
+            <mat-option value="green">Green</mat-option>
+            <mat-option value="blue">Blue</mat-option>
+          </mat-select>
+        </mat-form-field>
+      
+
+    </div>
+  
+
+
     <table mat-table [dataSource]="dataSource" matSort class="mat-elevation-z8">
       <!-- Sucursal ID Column -->
       <ng-container matColumnDef="stockId">
@@ -52,5 +84,12 @@
       <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
       <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
     </table>
+    <mat-paginator
+      [length]="totalRows" 
+      [pageSize]="pageSize" 
+      [pageSizeOptions]="[2, 5, 10, 20]" 
+      showFirstLastButtons 
+      (page)="onPageChange($event)">
+    </mat-paginator>
 </div>
   
