@@ -26,6 +26,7 @@ import { MatPaginator, PageEvent  } from '@angular/material/paginator';
 
 
 
+
 @Component({
   selector: 'app-inventario',
   standalone: true,
@@ -95,26 +96,12 @@ export class InventarioComponent implements OnInit{
   }
 
   ngAfterViewInit() {
+    this.dataSource.sort=this.sort;
     this.dataSource.paginator = this.paginator;
   }
 
 
-    // Método para inicializar el filtro de productos
-    initializeProductFilter() {
-      this.filteredProducts = this.productControl.valueChanges.pipe(
-        startWith(''),
-        map(value => this.filterProducts(value || ''))
-      );
-    }
-
-    private filterProducts(value: string): StockDto[] {
-      const filterValue = value.toLowerCase();
-      return this.dataSource.data.filter(product => product.productName.toLowerCase().includes(filterValue));
-    }
-
-  displayFn(stockDto: StockDto): string {
-      return stockDto && stockDto.productName ? stockDto.productName : '';
-  }
+ 
 
   onCompanyChange(event: any){
     this.companyID=event.value;
@@ -140,17 +127,15 @@ export class InventarioComponent implements OnInit{
     console.log('Sucursal seleccionada:', this.sucursalID);
 
     this.inventarioService.getInventarioStockProducto(this.companyID,this.sucursalID,1,2).subscribe({
-      next:(response:{results?: StockDto[]; RowsCount?: number; PageCount?:number; PageSize?:number;
+      next:(response:{results: StockDto[]; RowsCount: number; PageCount:number; PageSize:number;
         CurrentPage?:number})=>{
         console.log('Datos recibidos del API:', response);
-        if (response.results && Array.isArray(response.results)) {
           this.dataSource.data=response.results.map(item=> new StockDto(item));
           this.dataSource.sort=this.sort;
-          console.log('Datos recibidos:', this.dataSource.data);
-        }else{
-          console.error('La propiedad Results no está definida o no es un array');
-          this.dataSource.data = []; // Inicializa dataSource con un array vacío
-        }
+          
+    
+          
+
       },
       error:(error)=>{
         console.error('Error al obtener Productos',error);
@@ -161,16 +146,29 @@ export class InventarioComponent implements OnInit{
 
   // Llamada al API para cargar datos
   loadData(): void {
+    const apiPage = this.currentPage + 1; // Ajusta la página para el API
+    console.log(`Cargando datos: Página del paginador: ${this.currentPage}, Página API: ${apiPage}`);
 
+    console.log(' Cmpañia:', this.companyID);
+    console.log(' Sucursal:', this.sucursalID);
+    console.log(' Current page para cargar datos:', this.currentPage);
     this.inventarioService.getInventarioStockProducto(this.companyID,this.sucursalID, 
-                                                      this.currentPage+1,this.pageSize).subscribe({
-      next:(response:{results: StockDto[]; RowsCount: number; PageCount:number; PageSize:number;
-        CurrentPage:number})=>{
+                                                      apiPage,this.pageSize).subscribe({
+      next:(response:{results: StockDto[]; rowsCount: number; PageCount:number; PageSize:number;
+        currentPage:number})=>{
         console.log('Datos recibidos del API:', response);
           this.dataSource.data=response.results.map(item=> new StockDto(item));
           this.dataSource.sort=this.sort;
-          this.totalRows=response.RowsCount;
-          this.currentPage=response.CurrentPage-1;
+          
+          this.totalRows=response.rowsCount;
+          this.currentPage=response.currentPage;
+
+          console.log(' Rows Count:', this.totalRows);
+          console.log(' Current page:', this.currentPage);
+
+           // Reasignar paginador después de la actualización
+          this.dataSource.paginator = this.paginator;
+          
       },
       error:(error)=>{
         console.error('Error al obtener Productos',error);

@@ -87,6 +87,7 @@
     <mat-paginator
       [length]="totalRows" 
       [pageSize]="pageSize" 
+      [pageIndex]="currentPage"
       [pageSizeOptions]="[2, 5, 10, 20]" 
       showFirstLastButtons 
       (page)="onPageChange($event)">
